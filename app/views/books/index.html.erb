@@ -16,3 +16,8 @@
 <nav class="page-nav">
   <%= link_to t('views.common.new', name: Book.model_name.human.downcase), new_book_path %>
 </nav>
+
+<br>
+
+<%= page_entries_info @books %>
+<%= paginate @books %>
