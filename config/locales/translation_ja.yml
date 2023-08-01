@@ -9,3 +9,9 @@ ja:
         memo: メモ
         picture: 画像
         title: タイトル
+
+    flash:
+      book:
+        create: "本は正常に作成されました。"
+        update: "本は正常に更新されました。"
+        destroy: "本は正常に削除されました。"

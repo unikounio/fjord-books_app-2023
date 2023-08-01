@@ -1,7 +1,9 @@
 en:
   activerecord:
     models:
-      book: book
+      book:
+        one: book
+        other: books
 
     attributes:
       book:
@@ -9,3 +11,9 @@ en:
         memo: Memo
         picture: Picture
         title: Title
+
+    flash:
+      book:
+        create: Book was successfully created.
+        update: Book was successfully updated.
+        destroy: Book was successfully destroyed.

@@ -181,10 +181,9 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
-  books: 本棚
   editing_book: 本の編集
   new_book: 本の作成
   show_this_book: この本の詳細
   edit_this_book: この本を編集
-  back_to_books: 本棚へ戻る
+  back_to_books: 一覧へ戻る
   destroy_this_book: この本を削除
