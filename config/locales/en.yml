@@ -215,9 +215,12 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
-  editing_book: Editing book
-  new_book: New book
-  show_this_book: Show this book
-  edit_this_book: Edit this book
-  back_to_books: Back to books
-  destroy_this_book: Destroy this book
+  books:
+    show_book: Show this book
+    new_book: New book
+    edit:
+      page_title: Editing book
+    show:
+      edit: Edit this book
+      destroy: Destroy this book
+    back: Back to books
