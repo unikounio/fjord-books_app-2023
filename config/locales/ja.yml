@@ -182,8 +182,8 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
   books:
-    show_book: この本の詳細
-    new_book: 本の作成
+    detail: この本の詳細
+    new: 本の作成
     edit:
       page_title: 本の編集
     show:

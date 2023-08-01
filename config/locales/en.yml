@@ -216,8 +216,8 @@ en:
       short: "%d %b %H:%M"
     pm: pm
   books:
-    show_book: Show this book
-    new_book: New book
+    detail: Show this book
+    new: New book
     edit:
       page_title: Editing book
     show:
