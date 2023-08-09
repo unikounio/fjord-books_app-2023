@@ -1,0 +1,18 @@
+en:
+  activerecord:
+    models:
+      book:
+        one: book
+        other: books
+
+    attributes:
+      book:
+        author: Author
+        memo: Memo
+        picture: Picture
+        title: Title
+
+    flash:
+      create: "%{model} was successfully created."
+      update: "%{model} was successfully updated."
+      destroy: "%{model} was successfully destroyed."
