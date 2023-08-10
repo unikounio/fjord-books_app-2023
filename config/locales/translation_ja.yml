@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    models:
+      book: 本
+      user: ユーザー
+
+    attributes:
+      book:
+        author: 著者
+        memo: メモ
+        picture: 写真
+        title: タイトル
+
+      user:
+        email: Eメール
+        encrypted_password: 暗号化されたパスワード
+        remember_created_at: で作成されたことを覚えておいてください
+        reset_password_sent_at: に送信されたパスワードのリセット
+        reset_password_token: パスワードトークンをリセットする
+
+    flash:
+      create: "%{model}は正常に作成されました。"
+      update: "%{model}は正常に更新されました。"
+      destroy: "%{model}は正常に削除されました。"
+

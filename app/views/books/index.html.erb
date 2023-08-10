@@ -1,20 +1,25 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Books</h1>
+<h1><%= Book.model_name.human(count: 2) %></h1>
 
-<div id="books">
+<div id="books" class="index-items">
   <% @books.each do |book| %>
-    <%= render book %>
-    <p>
-      <%= link_to "Show this book", book %>
-    </p>
+    <div class="index-item">
+      <%= render book %>
+      <p>
+        <%= link_to t("books.detail"), book %>
+      </p>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New book", new_book_path %>
+<nav class="page-nav">
+  <%= link_to t("books.new"), new_book_path %><br>
 
-<p>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path %> |
-  <%= button_to "Logout", destroy_user_session_path, method: :delete %>
-</p>
+  <p>
+    Logged in as <strong><%= current_user.email %></strong>. |
+    <%= link_to 'Edit profile', edit_user_registration_path %>
+    <%= button_to "Logout", destroy_user_session_path, method: :delete %>
+  </p>
+
+</nav>
