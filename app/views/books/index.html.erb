@@ -17,9 +17,9 @@
   <%= link_to t("books.new"), new_book_path %><br>
 
   <p>
-    Logged in as <strong><%= current_user.email %></strong>. |
-    <%= link_to 'Edit profile', edit_user_registration_path %>
-    <%= button_to "Logout", destroy_user_session_path, method: :delete %>
+    <strong><%= current_user.email %></strong>としてログイン |
+    <%= link_to "プロフィールを編集", edit_user_registration_path %>
+    <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
   </p>
 
 </nav>
