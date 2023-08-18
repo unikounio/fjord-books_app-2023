@@ -19,8 +19,7 @@
   <p>
     <strong><%= t "devise.shared.links.sign_in_with_provider", provider: current_user.email %></strong> |
     <%= link_to t("users.my_page"), user_path(current_user.id) %> |
-    <%= link_to t("devise.registrations.edit.title", resource: User.model_name.human), edit_user_registration_path %>
-    <%= button_to t("devise.shared.links.sign_out"), destroy_user_session_path, method: :delete %>
+    <%= link_to t("devise.registrations.edit.title", resource: User.model_name.human), edit_user_registration_path %> |
+    <%= link_to t("users.list"), users_path %>
   </p>
-
 </nav>

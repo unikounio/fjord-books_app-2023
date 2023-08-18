@@ -5,13 +5,16 @@
 <% end %>
 
 <div>
-  <p><strong><%= t "activerecord.attributes.user.email" %>: </strong><%= @user.email %></p>
-  <p><strong><%= t "activerecord.attributes.user.postal_code" %>: </strong><%= @user.postal_code %></p>
-  <p><strong><%= t "activerecord.attributes.user.address" %>: </strong><%= @user.address %></p>
-  <p><strong><%= t "activerecord.attributes.user.about_me" %>: </strong><%= @user.about_me %></p>
+  <p><strong><%= User.human_attribute_name("email") %>: </strong><%= @user.email %></p>
+  <p><strong><%= User.human_attribute_name("postal_code") %>: </strong><%= @user.postal_code %></p>
+  <p><strong><%= User.human_attribute_name("address") %>: </strong><%= @user.address %></p>
+  <p><strong><%= User.human_attribute_name("about_me") %>: </strong><%= @user.about_me %></p>
 </div>
 
 <nav class="page-nav">
-  <%= link_to t("devise.registrations.edit.title", resource: User.model_name.human), edit_user_registration_path %> |
+  <% if user_signed_in? && @user == current_user %>
+    <%= link_to t("devise.registrations.edit.title", resource: User.model_name.human), edit_user_registration_path %> |
+  <% end %>
+  <%= link_to t("users.list"), users_path %> |
   <%= link_to t("books.back"), books_path %>
 </nav>

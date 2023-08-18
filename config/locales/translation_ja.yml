@@ -17,6 +17,9 @@ ja:
         remember_created_at: で作成されたことを覚えておいてください
         reset_password_sent_at: に送信されたパスワードのリセット
         reset_password_token: パスワードトークンをリセットする
+        postal_code: 郵便番号
+        address: 住所
+        about_me: 自己紹介
 
     flash:
       create: "%{model}は正常に作成されました。"

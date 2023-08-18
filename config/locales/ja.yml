@@ -189,8 +189,9 @@ ja:
     show:
       edit: この本を編集
       destroy: この本を削除
-    back: 一覧へ戻る
+    back: 本の一覧へ
   users:
-    my_page: "マイページ"
+    my_page: マイページ
     show:
       user_page: "%{email}さんのページ"
+    list: ユーザー一覧
