@@ -12,8 +12,10 @@
 
   <body class="<%= params[:action] %>">
     <%= yield %>
-    <nav class="page-nav">
-      <%= button_to t("devise.shared.links.sign_out"), destroy_user_session_path, method: :delete %>
-    </nav>
+    <% if user_signed_in? %>
+      <nav class="page-nav">
+        <%= button_to t("devise.shared.links.sign_out"), destroy_user_session_path, method: :delete %>
+      </nav>
+    <% end %>
   </body>
 </html>
