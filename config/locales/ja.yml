@@ -190,3 +190,7 @@ ja:
       edit: この本を編集
       destroy: この本を削除
     back: 一覧へ戻る
+  users:
+    my_page: "マイページ"
+    show:
+      user_page: "%{email}さんのページ"

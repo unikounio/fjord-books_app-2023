@@ -67,6 +67,8 @@ group :development do
 
   gem 'erb_lint', require: false
   gem 'i18n_generators', require: false
+  gem 'letter_opener'
+  gem 'letter_opener_web'
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
 end
