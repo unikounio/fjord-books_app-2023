@@ -13,6 +13,7 @@ class User < ApplicationRecord
   private
 
   def icon_type
+    return if icon.nil?
     return if icon.blob.content_type.in?(%w[image/jpeg image/png image/gif])
 
     icon.purge
