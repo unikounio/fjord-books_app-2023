@@ -1,20 +1,25 @@
 <p style="color: green"><%= notice %></p>
 
-<h1><%= t('views.common.title_index', name: i18n_pluralize(Book.model_name.human)) %></h1>
+<h1><%= Book.model_name.human(count: 2) %></h1>
 
 <div id="books" class="index-items">
   <% @books.each do |book| %>
     <div class="index-item">
       <%= render book %>
       <p>
-        <%= link_to t('views.common.show', name: Book.model_name.human.downcase), book %>
+        <%= link_to t("books.detail"), book %>
       </p>
     </div>
   <% end %>
 </div>
 
-<%= paginate @books %>
-
 <nav class="page-nav">
-    <%= link_to t('views.common.new', name: Book.model_name.human.downcase), new_book_path %>
+  <%= link_to t("books.new"), new_book_path %><br>
+
+  <p>
+    <strong><%= t "devise.shared.links.sign_in_with_provider", provider: current_user.email %></strong> |
+    <%= link_to t("users.my_page"), user_path(current_user.id) %> |
+    <%= link_to t("devise.registrations.edit.title", resource: User.model_name.human), edit_user_registration_path %> |
+    <%= link_to t("users.list"), users_path %>
+  </p>
 </nav>
