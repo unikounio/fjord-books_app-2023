@@ -4,6 +4,21 @@
   <%= render @book %>
 </div>
 
+<div>
+  <p>コメント件数：<%= @book.comments.count %></p>
+  <% @book.comments.each do |comment| %>
+    <%= comment.created_at.strftime("%Y年%m月%d日(#{t('date.abbr_day_names')[comment.created_at.wday]}) %H:%M") %> 
+    <%= comment.comment %><br>
+  <% end %>
+</div>
+
+<div>
+  <%= form_with model: [@book, @comment] do |f| %>
+    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに", required: true %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>
+
 <nav class="page-nav">
   <%= link_to t('views.common.edit', name: Book.model_name.human.downcase), edit_book_path(@book) %> |
   <%= link_to t('views.common.back', name: i18n_pluralize(Book.model_name.human.downcase)), books_path %>
