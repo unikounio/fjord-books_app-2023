@@ -14,6 +14,7 @@ ja:
       report:
         title: タイトル
         text: 本文
+        created_at: 投稿日時
       user:
         name: 氏名
         postal_code: 郵便番号
