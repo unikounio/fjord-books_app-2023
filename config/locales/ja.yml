@@ -216,3 +216,7 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
+  comments:
+    count: コメント件数
+    nothing: コメントはありません
+    here: コメントをここに

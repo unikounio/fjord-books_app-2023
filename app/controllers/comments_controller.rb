@@ -1,15 +1,15 @@
 class CommentsController < ApplicationController
   def create
-    book = Book.find(params[:book_id])
+    commentable_type = params[:comment][:commentable_type].constantize
+    commentable = commentable_type.find(params[:comment][:commentable_id])
     comment = current_user.comments.new(comment_params)
-    comment.commentable = book
     comment.save
-    redirect_to book_path(book)
+    redirect_to polymorphic_path(commentable)
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit(:comment)
+    params.require(:comment).permit(:comment, :commentable_type, :commentable_id)
   end
 end

@@ -1,0 +1,25 @@
+<div>
+  <% if model.comments.count > 0 %>
+    <p><%= t('comments.count') %>：<%= model.comments.count %></p>
+    <% model.comments.each do |comment| %>
+      <%= comment.created_at.strftime("%Y年%m月%d日(#{t('date.abbr_day_names')[comment.created_at.wday]}) %H:%M") %> 
+      <% unless comment.user.name.empty? %>
+        <%= comment.user.name %>
+      <% else %>
+        <%= comment.user.email  %>
+      <% end %>
+      : <%= comment.comment %><br>
+    <% end %>
+  <% else %>
+    <p><%= t('comments.nothing') %>
+  <% end %>
+</div>
+
+<div class="field">
+  <%= form_with model: [model, @comment] do |f| %>
+    <%= f.hidden_field :commentable_type, value: model.class %>
+    <%= f.hidden_field :commentable_id, value: model.id %>
+    <%= f.text_area :comment, placeholder: t('comments.here'), required: true %>
+    <%= f.submit %>
+  <% end %>
+</div>
