@@ -217,6 +217,8 @@ ja:
       edit:
         title: "アカウント編集"
   comments:
-    count: コメント件数
-    nothing: コメントはありません
-    here: コメントをここに
+    comment:
+      count: コメント件数
+      delete: 削除
+      nothing: コメントはありません
+      here: コメントをここに
