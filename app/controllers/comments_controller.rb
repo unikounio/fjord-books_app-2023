@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_commentable
+  before_action :set_commentable, only: [:create, :edit, :update, :destroy]
 
   def create
     comment = @commentable.comments.build(comment_params)
@@ -10,6 +10,16 @@ class CommentsController < ApplicationController
       flash[:alert] = comment.errors.full_messages.to_sentence
       redirect_to polymorphic_path(@commentable)
     end
+  end
+
+  def edit
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    comment = Comment.find(params[:id])
+    comment.update(comment_params) if comment.user == current_user
+    redirect_to polymorphic_path(@commentable)
   end
 
   def destroy

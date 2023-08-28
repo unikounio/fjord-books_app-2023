@@ -216,9 +216,12 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
+  general:
+    edit: 編集
+    update: 更新
+    delete: 削除
   comments:
     comment:
       count: コメント件数
-      delete: 削除
       nothing: コメントはありません
       here: コメントをここに

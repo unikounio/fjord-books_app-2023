@@ -10,8 +10,10 @@
       <% end %>
       : <%= comment.comment %>
       <% if comment.user == current_user %>
-        <%= button_to t('.delete'), polymorphic_path([commentable, comment]), method: :delete %><br>
+        <%= button_to t('general.edit'), polymorphic_path([:edit, commentable, comment]), method: :get %>
+        <%= button_to t('general.delete'), polymorphic_path([commentable, comment]), method: :delete %>
       <% end %>
+      <br>
     <% end %>
   <% else %>
     <p><%= t('.nothing') %>
