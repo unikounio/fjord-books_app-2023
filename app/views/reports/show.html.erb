@@ -4,7 +4,7 @@
   <%= render @report %>
 </div>
 
-<%= render "comments/comment", model: @report %>
+<%= render "comments/comment", commentable: @report %>
 
 <nav class="page-nav">
   <% if @report.user == current_user %>
