@@ -1,15 +1,13 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
-  before_action :set_commentable, only: [:create, :edit, :update, :destroy]
+  before_action :set_commentable, only: %i[create edit update destroy]
 
   def create
     comment = @commentable.comments.build(comment_params)
     comment.user = current_user
-    if comment.save
-      redirect_to polymorphic_path(@commentable)
-    else
-      flash[:alert] = comment.errors.full_messages.to_sentence
-      redirect_to polymorphic_path(@commentable)
-    end
+    flash[:alert] = comment.errors.full_messages.to_sentence unless comment.save
+    redirect_to polymorphic_path(@commentable)
   end
 
   def edit
@@ -26,16 +24,17 @@ class CommentsController < ApplicationController
     comment = Comment.find(params[:id])
     comment.destroy if comment.user == current_user
     redirect_to polymorphic_path(@commentable)
-  end 
+  end
 
   private
 
   def set_commentable
-    if params[:book_id]
-      @commentable = Book.find(params[:book_id])
-    else
-      @commentable = Report.find(params[:report_id])
-    end
+    @commentable =
+      if params[:book_id]
+        Book.find(params[:book_id])
+      else
+        Report.find(params[:report_id])
+      end
   end
 
   def comment_params
