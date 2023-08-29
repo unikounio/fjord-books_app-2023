@@ -16,7 +16,6 @@ class User < ApplicationRecord
     return if icon.nil?
     return if icon.blob.content_type.in?(%w[image/jpeg image/png image/gif])
 
-    icon.purge
     errors.add(:icon_image, 'はjpg, png, gif形式のいずれかでアップロードしてください')
   end
 end

@@ -8,10 +8,4 @@ class UsersController < ApplicationController
   def show
     @user = User.with_attached_icon.find(params[:id])
   end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:email, :name, :postal_code, :address, :self_introduction, :icon)
-  end
 end
