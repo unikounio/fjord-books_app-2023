@@ -6,6 +6,13 @@
 
 <%= render 'shared/comments', commentable: @report %>
 
+<div>
+  この日報に言及している日報
+  <% @report.mentioning_reports.each do |mentioning_report| %>
+    <%= link_to mentioning_report.title, mentioning_report %>
+  <% end %>
+</div>
+
 <nav class="page-nav">
   <% if @report.editable?(current_user) %>
     <%= link_to t('views.common.edit', name: Report.model_name.human.downcase), edit_report_path(@report) %> |
