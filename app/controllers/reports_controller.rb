@@ -21,11 +21,18 @@ class ReportsController < ApplicationController
   def create
     @report = current_user.reports.new(report_params)
 
-    if @report.save
-      redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
-    else
-      render :new, status: :unprocessable_entity
+    ActiveRecord::Base.transaction do
+      @report.save!
+      mentioned_report_ids = @report.content.scan(/http:\/\/localhost:3000\/reports\/(\d+)/).flatten.uniq
+      mentioned_report_ids.map(&:to_i).each do |id|
+        Mention.create!(mentioned_report_id: id, mentioning_report_id: @report.id)
+      end
     end
+
+    redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
+
+  rescue ActiveRecord::RecordInvalid
+    render :new, status: :unprocessable_entity
   end
 
   def update
