@@ -18,4 +18,10 @@ module ApplicationHelper
   def format_content(content)
     safe_join(content.split("\n"), tag.br)
   end
+
+  def text_url_to_link(text)
+    require 'uri'
+    uri_reg = URI::DEFAULT_PARSER.make_regexp(%w[http https])
+    text.gsub(uri_reg) { link_to ::Regexp.last_match(0), ::Regexp.last_match(0) }
+  end
 end
