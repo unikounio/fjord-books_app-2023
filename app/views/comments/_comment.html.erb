@@ -20,6 +20,7 @@
   <% end %>
 </div>
 
+<%= @comment.errors.full_messages.to_sentence if @comment.errors.any? %>
 <%= form_with model: [commentable, @comment] do |f| %>
   <%= f.text_area :comment, placeholder: t('.here'), required: true %>
   <%= f.submit %>

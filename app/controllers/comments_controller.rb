@@ -6,8 +6,11 @@ class CommentsController < ApplicationController
   def create
     comment = @commentable.comments.build(comment_params)
     comment.user = current_user
-    flash[:alert] = comment.errors.full_messages.to_sentence unless comment.save
-    redirect_to polymorphic_path(@commentable)
+    if comment.save
+      redirect_to polymorphic_path(@commentable)
+    else
+      render "comment", commentable: @commentable
+    end
   end
 
   def edit
