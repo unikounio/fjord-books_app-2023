@@ -1,5 +1,5 @@
 <div>
-  <% if commentable.comments.count > 0 %>
+  <% if commentable.comments.present? %>
     <p><%= t('.count') %>：<%= commentable.comments.count %></p>
     <% commentable.comments.each do |comment| %>
       <%= comment.created_at.strftime("%Y年%m月%d日(#{t('date.abbr_day_names')[comment.created_at.wday]}) %H:%M") %>
@@ -16,7 +16,7 @@
       <br>
     <% end %>
   <% else %>
-    <p><%= t('.nothing') %>
+    <p><%= t('.nothing') %></p>
   <% end %>
 </div>
 
