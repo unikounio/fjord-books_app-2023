@@ -11,6 +11,6 @@
 
   <p>
     <%= Report.human_attribute_name(:created_at) %>:
-    <%= report.created_at.strftime("%Y年%m月%d日(#{t('date.abbr_day_names')[report.created_at.wday]}) %H:%M") %>
+    <%= l report.created_at %>
   </p>
 </div>
