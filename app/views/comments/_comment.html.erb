@@ -3,11 +3,7 @@
     <p><%= t('.count') %>：<%= commentable.comments.count %></p>
     <% commentable.comments.each do |comment| %>
       <%= l comment.created_at %>
-      <% unless comment.user.name.empty? %>
-        <%= comment.user.name %>
-      <% else %>
-        <%= comment.user.email %>
-      <% end %>
+      <%= comment.display_name_or_email %>
       : <%= comment.comment %>
       <% if comment.user == current_user %>
         <%= button_to t('general.edit'), polymorphic_path([:edit, commentable, comment]), method: :get %>
