@@ -8,7 +8,7 @@
 
 <div>
   <%= t('mention.mentioning_reports') %>
-  <% @report.mentioned_reports.each do |mentioned_report| %>
+  <% @report.mentioned_reports.order(:id).each do |mentioned_report| %>
     <p><%= link_to mentioned_report.title, mentioned_report %></p>
   <% end %>
 </div>
