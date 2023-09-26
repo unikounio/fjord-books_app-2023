@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Report < ApplicationRecord
-  after_update :delete_mentions
+  after_create :create_mentions
+  after_update :update_mentions
 
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy
@@ -21,7 +22,15 @@ class Report < ApplicationRecord
     created_at.to_date
   end
 
-  def delete_mentions
-    Mention.where(mentioning_report_id: id).destroy_all
+  def create_mentions
+    mentioned_report_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.uniq
+    mentioned_report_ids.map(&:to_i).each do |id|
+      Mention.create!(mentioned_report_id: id, mentioning_report_id: self.id)
+    end
+  end
+
+  def update_mentions
+    Mention.where(mentioning_report_id: id).find_each(&:destroy!)
+    create_mentions
   end
 end
