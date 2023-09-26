@@ -25,12 +25,12 @@ class Report < ApplicationRecord
   def create_mentions
     mentioned_report_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.uniq
     mentioned_report_ids.map(&:to_i).each do |id|
-      Mention.create!(mentioned_report_id: id, mentioning_report_id: self.id)
+      active_mentions.create!(mentioned_report_id: id, mentioning_report_id: self.id)
     end
   end
 
   def update_mentions
-    Mention.where(mentioning_report_id: id).find_each(&:destroy!)
+    self.active_mentions.find_each(&:destroy!)
     create_mentions
   end
 end
