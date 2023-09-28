@@ -6,7 +6,7 @@
 
   <p>
     <strong><%= Report.human_attribute_name(:content) %>:</strong>
-    <%== text_url_to_link(format_content(h(report.content))) %>
+    <%== text_url_to_link report.content %>
   </p>
 
   <p>
