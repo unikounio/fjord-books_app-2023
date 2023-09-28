@@ -6,7 +6,7 @@
 
   <p>
     <strong><%= Report.human_attribute_name(:content) %>:</strong>
-    <%== text_url_to_link(sanitize(format_content(h(report.content)), tags: %w(a br), attributes: %w(href))) %>
+    <%== text_url_to_link(format_content(h(report.content))) %>
   </p>
 
   <p>
