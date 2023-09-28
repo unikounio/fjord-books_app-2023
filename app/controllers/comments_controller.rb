@@ -2,12 +2,13 @@
 
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
+  before_action :set_commentable
 
   def create
-    comment = commentable.comments.build(comment_params)
+    comment = @commentable.comments.build(comment_params)
     comment.user = current_user
     if comment.save
-      redirect_to polymorphic_path(commentable)
+      redirect_to polymorphic_path(@commentable)
     else
       render 'comment', commentable:
     end
@@ -17,7 +18,7 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to polymorphic_path(commentable)
+      redirect_to polymorphic_path(@commentable)
     else
       render 'comment', commentable:
     end
@@ -25,7 +26,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to polymorphic_path(commentable)
+    redirect_to polymorphic_path(@commentable)
   end
 
   private
@@ -38,7 +39,7 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:comment)
   end
 
-  def commentable
+  def set_commentable
     raise NotImplementedError
   end
 end
