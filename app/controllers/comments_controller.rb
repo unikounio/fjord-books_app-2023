@@ -16,8 +16,11 @@ class CommentsController < ApplicationController
   def edit; end
 
   def update
-    @comment.update(comment_params)
-    redirect_to polymorphic_path(commentable)
+    if @comment.update(comment_params)
+      redirect_to polymorphic_path(commentable)
+    else
+      render 'comment', commentable:
+    end
   end
 
   def destroy
