@@ -24,7 +24,7 @@ class Report < ApplicationRecord
 
   def create_mentions
     mentioned_report_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.uniq
-    mentioned_report_ids.map(&:to_i).each do |mentioned_report_id|
+    mentioned_report_ids.each do |mentioned_report_id|
       active_mentions.create!(mentioned_report_id:)
     end
   end
