@@ -3,7 +3,7 @@
 class Reports::CommentsController < CommentsController
   private
 
-  def set_commentable
+  def commentable
     @commentable ||= Report.find(params[:report_id])
   end
 end
