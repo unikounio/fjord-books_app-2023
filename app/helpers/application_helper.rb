@@ -15,10 +15,10 @@ module ApplicationHelper
     I18n.locale == :ja ? "#{count}件の#{t('views.common.error')}" : pluralize(count, t('views.common.error'))
   end
 
-  def text_url_to_link(text)
+  def format_content(content)
     uri_reg = URI::DEFAULT_PARSER.make_regexp(%w[http https])
-    formated_text = safe_join(text.split("\n"), tag.br)
-    linked_text = formated_text.gsub(uri_reg) { link_to ::Regexp.last_match(0), ::Regexp.last_match(0) }
-    sanitize(linked_text, tags: %w(a br), attributes: %w(href))
+    content_with_line_breaks = safe_join(content.split("\n"), tag.br)
+    linked_content = content_with_line_breaks.gsub(uri_reg) { link_to ::Regexp.last_match(0), ::Regexp.last_match(0) }
+    sanitize(linked_content, tags: %w[a br], attributes: %w[href])
   end
 end
