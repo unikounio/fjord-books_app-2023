@@ -2,7 +2,7 @@
 
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
-  before_action :commentable
+  before_action :set_commentable
 
   def create
     comment = @commentable.comments.build(comment_params)
@@ -43,7 +43,7 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:comment)
   end
 
-  def commentable
+  def set_commentable
     raise NotImplementedError
   end
 end
