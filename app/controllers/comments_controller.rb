@@ -9,8 +9,12 @@ class CommentsController < ApplicationController
     comment.user = current_user
     if comment.save
       redirect_to polymorphic_path(@commentable)
+    elsif @commentable.is_a?(Book)
+      @book = @commentable
+      render 'books/show'
     else
-      render '_comment', locals: { commentable: @commentable }
+      @report = @commentable
+      render 'reports/show'
     end
   end
 
