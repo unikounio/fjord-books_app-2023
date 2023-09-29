@@ -22,6 +22,8 @@ class Report < ApplicationRecord
     created_at.to_date
   end
 
+  private
+
   def create_mentions
     mentioned_report_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.uniq
     mentioned_report_ids.each do |mentioned_report_id|
