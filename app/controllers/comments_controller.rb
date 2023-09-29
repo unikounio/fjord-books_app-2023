@@ -9,12 +9,8 @@ class CommentsController < ApplicationController
     comment.user = current_user
     if comment.save
       redirect_to polymorphic_path(@commentable)
-    elsif @commentable.is_a?(Book)
-      @book = @commentable
-      render 'books/show'
     else
-      @report = @commentable
-      render 'reports/show'
+      render_commentable
     end
   end
 
@@ -44,6 +40,10 @@ class CommentsController < ApplicationController
   end
 
   def set_commentable
+    raise NotImplementedError
+  end
+
+  def render_commentable
     raise NotImplementedError
   end
 end
