@@ -177,17 +177,18 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      default: "%Y年%m月%d日(%a) %H時%M分"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
   views:
     common:
-      show: "この%{name}を表示"
-      edit: "この%{name}を編集"
-      destroy: "この%{name}を削除"
-      new: "%{name}の新規作成"
-      back: "%{name}の一覧に戻る"
+      show: "表示"
+      edit: "編集"
+      update: "更新"
+      destroy: "削除"
+      new: "新規作成"
+      back: "戻る"
       delete_confirm: よろしいですか？
       title_index: "%{name}の一覧"
       title_new: "%{name}の新規作成"
@@ -216,3 +217,8 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
+  comments:
+    comment:
+      count: コメント件数
+      nothing: コメントはありません
+      here: コメントをここに

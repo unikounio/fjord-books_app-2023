@@ -319,3 +319,7 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
   background-color: var(--global-primary-c-hover);
 }
+
+form.button_to {
+  display: inline-block;
+}
