@@ -221,3 +221,5 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
+  mention:
+    mentioning_reports: この日報に言及している日報

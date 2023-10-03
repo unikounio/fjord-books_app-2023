@@ -16,6 +16,9 @@ module ApplicationHelper
   end
 
   def format_content(content)
-    safe_join(content.split("\n"), tag.br)
+    uri_regexp = URI::DEFAULT_PARSER.make_regexp(%w[http https])
+    content_with_line_breaks = safe_join(content.split("\n"), tag.br)
+    linked_content = content_with_line_breaks.gsub(uri_reg) { link_to ::Regexp.last_match(0), ::Regexp.last_match(0) }
+    sanitize(linked_content, tags: %w[a br], attributes: %w[href])
   end
 end
