@@ -5,12 +5,7 @@ require 'application_system_test_case'
 class BooksTest < ApplicationSystemTestCase
   setup do
     @book = books(:cherry_book)
-
-    visit root_url
-    fill_in 'Eメール', with: 'alice@example.com'
-    fill_in 'パスワード', with: 'password'
-    click_on 'ログイン'
-    assert_text 'ログインしました。'
+    login_alice
   end
 
   test 'visiting the index' do

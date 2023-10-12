@@ -2,10 +2,10 @@
 
 daily_alice:
   user: alice
-  title: アリスの日報
+  title: 初日報
   content: テスト楽しい！
 
-daile_bob:
+daily_bob:
   user: bob
-  title: ボブの日報
+  title: ボブ、大地に立つ
   content: テスト素晴らしい！
