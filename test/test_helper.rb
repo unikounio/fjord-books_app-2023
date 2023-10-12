@@ -8,15 +8,12 @@ class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)
 
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
-
   # Add more helper methods to be used by all tests here...
   include FactoryBot::Syntax::Methods
 
   def login_alice
     create(:alice) unless User.exists?(email: 'alice@example.com')
-    visit root_url
+    visit new_user_session_path
     fill_in 'Eメール', with: 'alice@example.com'
     fill_in 'パスワード', with: 'password'
     click_on 'ログイン'
