@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   user: one
-#   title: MyString
-#   content: MyText
+daily_alice:
+  user: alice
+  title: アリスの日報
+  content: テスト楽しい！
 
-# two:
-#   user: two
-#   title: MyString
-#   content: MyText
+daile_bob:
+  user: bob
+  title: ボブの日報
+  content: テスト素晴らしい！
