@@ -1,11 +1,11 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-daily_alice:
-  user: alice
-  title: 初日報
-  content: テスト楽しい！
+# daily_alice:
+#   user: alice
+#   title: 初日報
+#   content: テスト楽しい！
 
-daily_bob:
-  user: bob
-  title: ボブ、大地に立つ
-  content: テスト素晴らしい！
+# daily_bob:
+#   user: bob
+#   title: ボブ、大地に立つ
+#   content: テスト素晴らしい！

@@ -12,7 +12,10 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  include FactoryBot::Syntax::Methods
+
   def login_alice
+    create(:alice) unless User.exists?(email: 'alice@example.com')
     visit root_url
     fill_in 'Eメール', with: 'alice@example.com'
     fill_in 'パスワード', with: 'password'

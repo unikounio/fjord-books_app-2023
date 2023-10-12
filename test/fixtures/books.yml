@@ -1,10 +1,10 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-cherry_book:
-  title: プロを目指す人のためのRuby入門
-  memo: 名著です！！
-  author: jnchito
+# cherry_book:
+#   title: プロを目指す人のためのRuby入門
+#   memo: 名著です！！
+#   author: jnchito
 
-# two:
-#   title: MyString
-#   memo: MyText
+# # two:
+# #   title: MyString
+# #   memo: MyText

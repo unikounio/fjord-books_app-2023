@@ -4,7 +4,7 @@ require 'application_system_test_case'
 
 class BooksTest < ApplicationSystemTestCase
   setup do
-    @book = books(:cherry_book)
+    @book = create(:cherry_book)
     login_alice
   end
 
