@@ -9,7 +9,7 @@ class ReportMentionTest < ActiveSupport::TestCase
     assert_difference 'ReportMention.count' do
       create(:mentioning_report)
     end
-    
+
     assert_no_difference 'ReportMention.count' do
       create(:no_mention_report)
     end

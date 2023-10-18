@@ -5,7 +5,7 @@ require 'application_system_test_case'
 class CommentsTest < ApplicationSystemTestCase
   setup do
     @book = create(:cherry_book)
-    @report =create(:report_alice)
+    @report = create(:report_alice)
     login_alice
   end
 
