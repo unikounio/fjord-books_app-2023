@@ -4,7 +4,7 @@ require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
-    @report = create(:daily_alice)
+    @report = create(:report_alice)
     login_alice
   end
 
