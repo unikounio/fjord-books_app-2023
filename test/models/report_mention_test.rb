@@ -4,14 +4,12 @@ require 'test_helper'
 
 class ReportMentionTest < ActiveSupport::TestCase
   test 'create_mentions' do
-    create(:report_alice)
-
-    assert_difference 'ReportMention.count' do
-      create(:mentioning_report)
+    assert_no_difference 'ReportMention.count' do
+      create(:report)
     end
 
-    assert_no_difference 'ReportMention.count' do
-      create(:no_mention_report)
+    assert_difference 'ReportMention.count' do
+      create(:report, :with_mention, user: User.find_by(email: 'foo@example.com'))
     end
   end
 end

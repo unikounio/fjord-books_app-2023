@@ -1,15 +1,17 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :book_comment, class: Comment do
-    user { User.find_by(email: 'alice@example.com') }
+  # TODO: 同様の書き方をしてる箇所がないか確認して修正する。
+  factory :comment do
+    user
     association :commentable
-    content { 'マストバイ！' }
-  end
 
-  factory :report_comment, class: Comment do
-    user { User.find_by(email: 'alice@example.com') }
-    association :commentable
-    content { '我ながら素晴らしい日報だ' }
+    trait :on_book do
+      content { 'マストバイ！' }
+    end
+
+    trait :on_report do
+      content { '我ながら素晴らしい日報だ' }
+    end
   end
 end

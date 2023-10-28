@@ -4,8 +4,8 @@ require 'application_system_test_case'
 
 class BooksTest < ApplicationSystemTestCase
   setup do
-    @book = create(:cherry_book)
-    login_alice
+    @book = create(:book)
+    login_as_user
   end
 
   test 'visiting the index' do

@@ -4,9 +4,10 @@ require 'application_system_test_case'
 
 class CommentsTest < ApplicationSystemTestCase
   setup do
-    @book = create(:cherry_book)
-    @report = create(:report_alice)
-    login_alice
+    @book = create(:book)
+    @report = create(:report)
+    @email = 'foo@example.com'
+    login_as_user
   end
 
   test 'should create Comment for book' do
@@ -18,7 +19,7 @@ class CommentsTest < ApplicationSystemTestCase
   end
 
   test 'should destroy Comment for Book' do
-    create(:book_comment, commentable: @book)
+    create(:comment, :on_book, user: User.find_by(email: @email), commentable: @book)
     visit book_url(@book)
     assert_text 'マストバイ！'
     click_on '削除'
@@ -35,7 +36,8 @@ class CommentsTest < ApplicationSystemTestCase
   end
 
   test 'should destroy Comment for Report' do
-    create(:report_comment, commentable: @report)
+    user = User.find_by(email: @email)
+    create(:comment, :on_report, user:, commentable: @report)
     visit report_url(@report)
     assert_text '我ながら素晴らしい日報だ'
     click_on '削除'
