@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
   setup do
-    @report = create(:report, :normal)
+    @report = create(:report)
   end
 
   test '#editable?' do
@@ -15,6 +15,6 @@ class ReportTest < ActiveSupport::TestCase
   test '#created_on' do
     fixed_time = Time.zone.local(2023, 10, 12, 20, 0, 0)
     @report.created_at = fixed_time
-    assert_equal fixed_time.to_date, @report.created_on
+    assert_equal Date.new(2023, 10, 12), @report.created_on
   end
 end

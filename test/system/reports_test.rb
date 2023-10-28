@@ -4,7 +4,7 @@ require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
-    @report = create(:report, :normal)
+    @report = create(:report)
     login_as_user
   end
 
