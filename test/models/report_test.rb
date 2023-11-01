@@ -4,12 +4,13 @@ require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
   setup do
-    @report = create(:report)
+    @user = create(:user)
+    @report = create(:report, user: @user)
   end
 
   test '#editable?' do
-    assert @report.editable?(User.find_by(email: 'foo@example.com'))
-    assert_not @report.editable?(create(:user, email: 'bar@example.com'))
+    assert @report.editable?(@user)
+    assert_not @report.editable?(create(:user))
   end
 
   test '#created_on' do

@@ -9,7 +9,8 @@ class ReportMentionTest < ActiveSupport::TestCase
     end
 
     assert_difference 'ReportMention.count' do
-      create(:report, :with_mention, user: User.find_by(email: 'foo@example.com'))
+      user = create(:user)
+      create(:report, :with_mention, user:)
     end
   end
 end

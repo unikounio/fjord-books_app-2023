@@ -11,13 +11,10 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
   include FactoryBot::Syntax::Methods
 
-  # TODO: ログインユーザを限定せず、汎用的なメソッドにする
-  # ログインするユーザは引数で渡す
-  def login_as_user(email = 'foo@example.com', password = 'password')
-    create(:user, email:, password:) unless User.exists?(email:)
+  def login_as_user(user)
     visit new_user_session_path
-    fill_in 'Eメール', with: email
-    fill_in 'パスワード', with: password
+    fill_in 'Eメール', with: user.email
+    fill_in 'パスワード', with: user.password
     click_on 'ログイン'
     assert_text 'ログインしました。'
   end

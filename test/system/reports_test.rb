@@ -4,8 +4,9 @@ require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
-    @report = create(:report)
-    login_as_user
+    user = create(:user)
+    @report = create(:report, user:)
+    login_as_user(user)
   end
 
   test 'visiting the index' do

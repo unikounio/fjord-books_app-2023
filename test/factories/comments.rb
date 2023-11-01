@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  # TODO: 同様の書き方をしてる箇所がないか確認して修正する。
   factory :comment do
     user
     association :commentable
