@@ -8,6 +8,6 @@ class UserTest < ActiveSupport::TestCase
     assert_equal user.email, user.name_or_email
 
     user.name = 'Foo'
-    assert_equal 'Foo', user.name_or_email
+    assert_equal user.name, user.name_or_email
   end
 end
